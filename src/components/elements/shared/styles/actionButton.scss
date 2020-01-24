@@ -1,0 +1,22 @@
+.action-button {
+	background-color:#44c767;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+  color:#ffffff;
+  text-align: center;
+	font-size:17px;
+	padding:14px 22px;
+	text-decoration:none;
+}
+.action-button:hover {
+	background-color:#5cbf2a;
+}
+.action-button:active {
+	position:relative;
+	top:1px;
+}
+
+.action-button:focus {
+	outline:0;
+}
