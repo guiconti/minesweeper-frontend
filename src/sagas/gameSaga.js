@@ -2,6 +2,7 @@ import { put, call, select, take, fork, all } from 'redux-saga/effects';
 import retrieveNewGame from '../apis/retrieveNewGame';
 import retrieveGameDetails from '../apis/retrieveGameDetails';
 import sendOpenCell from '../apis/sendOpenCell';
+import sendFlagCell from '../apis/sendFlagCell';
 import { newGame, gameInfo } from '../actions/gameActions';
 import { navigate } from '../actions/navigateActions';
 import {
@@ -30,7 +31,7 @@ export function* openCell(payload) {
 }
 
 export function* flagCell(payload) {
-  const game = yield call(retrieveGameDetails, payload);
+  const game = yield call(sendFlagCell, payload);
   yield put(gameInfo(game));
 }
 

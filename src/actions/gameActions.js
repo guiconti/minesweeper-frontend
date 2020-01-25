@@ -3,7 +3,8 @@ import {
   FETCH_NEW_GAME,
   FETCH_GAME_DETAILS,
   GAME_INFO,
-  OPEN_CELL
+  OPEN_CELL,
+  FLAG_CELL
 } from '../constants/gameTypes';
 
 export function createNewGame(payload) {
@@ -35,10 +36,15 @@ export function gameInfo(payload) {
 }
 
 export function openCell(payload) {
-  console.log('Action');
-  console.log(payload);
   return {
     type: OPEN_CELL,
+    payload
+  };
+}
+
+export function flagCell(payload) {
+  return {
+    type: FLAG_CELL,
     payload
   };
 }

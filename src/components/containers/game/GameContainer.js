@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import GameSummary from '../../elements/game/GameSummary';
 import BoardRow from '../../elements/game/BoardRow';
 import { useDispatch, useSelector } from 'react-redux';
-import { retrieveGameDetails, openCell } from '../../../actions/gameActions';
+import { retrieveGameDetails, openCell, flagCell } from '../../../actions/gameActions';
 import {
   getGameStatus,
   getGameMines,
@@ -17,8 +17,13 @@ const GameContainer = ({ id }) => {
   const mines = useSelector(getGameMines);
   const difficulty = useSelector(getGameDifficulty);
   const board = useSelector(getGameBoard);
-  const onCellClick = (x, y) => {
-    dispatch(openCell({ id, x, y }));
+  const onCellClick = (e, x, y) => {
+    e.preventDefault();
+    if (e.type === 'click') {
+      dispatch(openCell({ id, x, y }));
+    } else {
+      dispatch(flagCell({ id, x, y }));
+    }
   };
 
   useEffect(() => {
@@ -29,8 +34,6 @@ const GameContainer = ({ id }) => {
     <div>
       <GameSummary
         status={status}
-        rows={rows}
-        columns={columns}
         mines={mines}
         difficulty={difficulty}
       />

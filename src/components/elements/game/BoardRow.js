@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BoardCell from './BoardCell';
+import gameCells from '../../../constants/gameCells';
 import './styles/boardRow.scss';
 
 const BoardRow = ({ action, cells, row }) => {
   return (
     <div className="board-row">
       {cells.map((cell, i) =>
-        <BoardCell action={action} value={cell} row={row} column={i} key={i} />
+        <BoardCell action={action} value={gameCells[cell]} row={row} column={i} key={i} />
       )}
     </div>
   );

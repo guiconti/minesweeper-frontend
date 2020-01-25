@@ -4,8 +4,8 @@ $breakpoint-large: '(min-width: 75em)' !default;
 
 .board-cell {
   flex: 1 1 auto;
-  background: #fcfaf9;
-  border: 1px solid #48e5c2;
+  background: #48e5c2;
+  border: 1px solid #fcfaf9;
   border-radius: 4px;
   float: left;
   line-height: 20px;
@@ -15,10 +15,19 @@ $breakpoint-large: '(min-width: 75em)' !default;
   cursor: pointer;
   color: #333333;
   font-weight: 600;
-
   &:focus {
     outline: none;
   }
+}
+
+.empty-cell {
+  background: #fcfaf9;
+  border: 1px solid #48e5c2;
+}
+
+.mine-cell {
+  background: #e55f48;
+  border: 1px solid #fcfaf9;
 }
 
 @media #{$breakpoint-small} {
