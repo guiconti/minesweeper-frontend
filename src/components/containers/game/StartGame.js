@@ -3,14 +3,14 @@ import ActionButton from '../../elements/shared/ActionButton';
 import { useDispatch } from 'react-redux';
 import { createNewGame } from '../../../actions/gameActions';
 
-const BarContainer = () => {
+const StartGame = () => {
   const dispatch = useDispatch();
 
   return (
     <div>
-      <ActionButton action={() => dispatch(createNewGame)} name="Start game" />
+      <ActionButton action={() => dispatch(createNewGame())} name="Start game" />
     </div>
   );
 };
 
-export default BarContainer;
+export default StartGame;
