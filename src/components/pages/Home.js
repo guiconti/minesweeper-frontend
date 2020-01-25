@@ -1,10 +1,9 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import PageWrapper from '../elements/shared/PageWrapper';
 import Header from '../elements/shared/Header';
 import StartGame from '../containers/game/StartGame';
 
-const HomePage = () => {
+const Home = () => {
   return (
     <PageWrapper>
       <Header title="Minesweeper" />
@@ -13,4 +12,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;

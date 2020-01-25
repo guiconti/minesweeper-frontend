@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PageWrapper from '../elements/shared/PageWrapper';
 import Header from '../elements/shared/Header';
 
-const NotFoundPage = () => {
+const NotFound = () => {
   return (
     <PageWrapper>
       <Header title="Page not found" />
@@ -12,4 +12,4 @@ const NotFoundPage = () => {
   );
 };
 
-export default NotFoundPage;
+export default NotFound;
