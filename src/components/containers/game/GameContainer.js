@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Loading from '../../elements/shared/Loading';
 import GameSummary from '../../elements/game/GameSummary';
-import BoardRow from '../../elements/game/BoardRow';
+import Board from '../../elements/game/Board';
 import { useDispatch, useSelector } from 'react-redux';
 import { retrieveGameDetails, openCell, flagCell } from '../../../actions/gameActions';
 import {
+  getGameLoading,
   getGameStatus,
   getGameMines,
   getGameDifficulty,
@@ -13,6 +15,7 @@ import {
 
 const GameContainer = ({ id }) => {
   const dispatch = useDispatch();
+  const loading = useSelector(getGameLoading);
   const status = useSelector(getGameStatus);
   const mines = useSelector(getGameMines);
   const difficulty = useSelector(getGameDifficulty);
@@ -32,14 +35,17 @@ const GameContainer = ({ id }) => {
 
   return (
     <div>
-      <GameSummary
-        status={status}
-        mines={mines}
-        difficulty={difficulty}
-      />
-      {board.map((row, i) =>
-        <BoardRow action={onCellClick} cells={row} row={i} key={i} />
-      )}
+      {loading ?
+        <Loading /> :
+          <div>
+            <GameSummary
+              status={status}
+              mines={mines}
+              difficulty={difficulty}
+            />
+            <Board action={onCellClick} board={board} />
+          </div>
+      }
     </div>
   );
 };

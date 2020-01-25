@@ -16,9 +16,9 @@ const GameSummary = ({ status, mines, difficulty }) => {
 };
 
 GameSummary.propTypes = {
-  status: PropTypes.string.isRequired,
+  status: PropTypes.number.isRequired,
   mines: PropTypes.number.isRequired,
-  difficulty: PropTypes.string.isRequired
+  difficulty: PropTypes.number.isRequired
 };
 
 export default GameSummary;

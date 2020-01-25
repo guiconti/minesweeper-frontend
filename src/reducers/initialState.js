@@ -5,7 +5,10 @@ export default {
     board: [],
     rows: 0,
     columns: 0,
+    mines: 0,
     difficulty: 0,
     seed: '',
+    loading: true,
+    found: true,
   },
 };

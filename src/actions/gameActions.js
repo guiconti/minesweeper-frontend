@@ -2,6 +2,8 @@ import {
   NEW_GAME,
   FETCH_NEW_GAME,
   FETCH_GAME_DETAILS,
+  GAME_LOADING,
+  GAME_NOT_FOUND,
   GAME_INFO,
   OPEN_CELL,
   FLAG_CELL
@@ -26,6 +28,18 @@ export function retrieveGameDetails(payload) {
     type: FETCH_GAME_DETAILS,
     payload
   };
+}
+
+export function gameLoading() {
+  return {
+    type: GAME_LOADING
+  }
+}
+
+export function gameNotFound() {
+  return {
+    type: GAME_NOT_FOUND
+  }
 }
 
 export function gameInfo(payload) {

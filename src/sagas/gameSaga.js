@@ -3,11 +3,12 @@ import retrieveNewGame from '../apis/retrieveNewGame';
 import retrieveGameDetails from '../apis/retrieveGameDetails';
 import sendOpenCell from '../apis/sendOpenCell';
 import sendFlagCell from '../apis/sendFlagCell';
-import { newGame, gameInfo } from '../actions/gameActions';
+import { newGame, gameLoading, gameInfo, gameNotFound } from '../actions/gameActions';
 import { navigate } from '../actions/navigateActions';
 import {
   FETCH_NEW_GAME,
   FETCH_GAME_DETAILS,
+  GAME_NOT_FOUND,
   OPEN_CELL,
   FLAG_CELL
 } from '../constants/gameTypes';
@@ -21,8 +22,17 @@ export function* fetchNewGame(payload) {
 }
 
 export function* fetchGameDetails(payload) {
-  const game = yield call(retrieveGameDetails, payload);
-  yield put(gameInfo(game));
+  try {
+    yield put(gameLoading());
+    const game = yield call(retrieveGameDetails, payload);
+    yield put(gameInfo(game));
+  } catch(err) {
+    yield put(gameNotFound());
+  }
+}
+
+export function* changeToGameNotFound() {
+  yield put(navigate({ path: `/game-not-found` }));
 }
 
 export function* openCell(payload) {
@@ -49,6 +59,13 @@ function* watchFetchGameDetails() {
   }
 }
 
+function* watchGameNotFound() {
+  while (true) {
+    yield take(GAME_NOT_FOUND);
+    yield fork(changeToGameNotFound);
+  }
+}
+
 function* watchOpenCell() {
   while (true) {
     const { payload } = yield take(OPEN_CELL);
@@ -67,6 +84,7 @@ export default function* watch() {
   yield all([
     fork(watchFetchNewGame),
     fork(watchFetchGameDetails),
+    fork(watchGameNotFound),
     fork(watchOpenCell),
     fork(watchFlagCell)
   ]);
