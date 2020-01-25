@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/header.scss';
 
-const Header = ({ value }) => {
+const Header = ({ children }) => {
   return (
     <div className="header">
       <h2>
-        {value}
+        {children}
       </h2>
     </div>
   );
 };
 
 Header.propTypes = {
-  value: PropTypes.string.isRequired
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
 };
 
 export default Header;

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/actionButton.scss';
 
-const Header = ({ action, name }) => {
+const ActionButton = ({ action, name }) => {
   return (
-    <div>
+    <div className="action-container">
       <button className="action-button" onClick={action}>
         {name}
       </button>
@@ -12,9 +12,9 @@ const Header = ({ action, name }) => {
   );
 };
 
-Header.propTypes = {
+ActionButton.propTypes = {
   action: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired
 };
 
-export default Header;
+export default ActionButton;

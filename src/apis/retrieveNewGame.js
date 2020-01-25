@@ -5,7 +5,7 @@ export default async payload => {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ difficulty: 0 })
+    body: JSON.stringify(payload)
   });
   if (!result.ok) {
     throw result;

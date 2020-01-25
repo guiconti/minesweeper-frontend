@@ -7,7 +7,9 @@ import StartGame from '../containers/game/StartGame';
 const Home = () => {
   return (
     <PageWrapper>
-      <Header value="Minesweeper" />
+      <Header>
+        Minesweeper
+      </Header>
       <GameInstructions />
       <StartGame />
     </PageWrapper>

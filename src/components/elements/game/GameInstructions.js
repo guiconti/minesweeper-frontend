@@ -11,7 +11,9 @@ const GameInstructions = () => {
   ];
   return (
     <div className="game-instructions">
-      <Title value="Instructions" />
+      <Title>
+        Instructions
+      </Title>
       {instructions.map((instruction, i) =>
         <p key={i}>
           {instruction}

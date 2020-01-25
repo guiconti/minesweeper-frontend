@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/title.scss';
 
-const Title = ({ value }) => {
+const Title = ({ children }) => {
   return (
     <div className="title">
       <h3>
-        {value}
+        {children}
       </h3>
     </div>
   );
 };
 
 Title.propTypes = {
-  value: PropTypes.string.isRequired
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
 };
 
 export default Title;

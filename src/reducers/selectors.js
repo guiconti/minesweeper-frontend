@@ -1,3 +1,4 @@
+export const getCreationDifficulty = state => state.creation.difficulty;
 export const getGameId = state => state.game.id;
 export const getGameLoading = state => state.game.loading;
 export const getGameStatus = state => state.game.status;

@@ -6,7 +6,9 @@ import Header from '../elements/shared/Header';
 const NotFound = () => {
   return (
     <PageWrapper>
-      <Header value="Page not found" />
+      <Header>
+        Page not found
+      </Header>
       <Link to="/"> Go back to homepage </Link>
     </PageWrapper>
   );
