@@ -1,0 +1,46 @@
+$breakpoint-small: '(min-width: 48em)' !default;
+$breakpoint-medium: '(min-width: 64em)' !default;
+$breakpoint-large: '(min-width: 75em)' !default;
+
+.board-cell {
+  flex: 1 1 auto;
+  background: #fcfaf9;
+  border: 1px solid #48e5c2;
+  border-radius: 4px;
+  float: left;
+  line-height: 20px;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #333333;
+  font-weight: 600;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@media #{$breakpoint-small} {
+  .board-cell {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+  }
+}
+@media #{$breakpoint-medium} {
+  .board-cell {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+  }
+}
+
+@media #{$breakpoint-large} {
+  .board-cell {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+  }
+}
+
