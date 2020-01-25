@@ -1,17 +1,21 @@
-import { put, call, take, fork, all } from 'redux-saga/effects';
+import { put, call, select, take, fork, all } from 'redux-saga/effects';
 import retrieveNewGame from '../apis/retrieveNewGame';
 import { newGame } from '../actions/gameActions';
-import { FETCH_NEW_GAME } from '../types/game';
+import { navigate } from '../actions/navigateActions';
+import { FETCH_NEW_GAME } from '../constants/gameTypes';
+import { getGameId } from '../reducers/selectors';
 
 export function* fetchNewGame(payload) {
-  const game = yield call(retrieveNewGame, {});
+  const game = yield call(retrieveNewGame, payload);
   yield put(newGame(game));
+  const gameId = yield select(getGameId);
+  yield put(navigate({ path: `/games/${gameId}` }))
 }
 
 function* watchFetchNewGame() {
   while(true) {
     const { payload } = yield take(FETCH_NEW_GAME);
-    yield fork(watchFetchNewGame, payload);
+    yield fork(fetchNewGame, payload);
   }
 }
 

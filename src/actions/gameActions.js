@@ -1,20 +1,16 @@
-import { NEW_GAME, FETCH_NEW_GAME } from '../types/game';
+import { NEW_GAME, FETCH_NEW_GAME } from '../constants/gameTypes';
 
-export function createNewGame(value) {
+export function createNewGame(payload) {
   return {
     type: FETCH_NEW_GAME,
-    payload: {
-      value,
-    },
+    payload,
   };
 }
 
-export function newGame(value) {
+export function newGame(payload) {
   return {
     type: NEW_GAME,
-    payload: {
-      value,
-    },
+    payload,
   };
 }
 

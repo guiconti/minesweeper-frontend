@@ -1,0 +1,1 @@
+export const getGameId = state => state.game.id;
