@@ -5,7 +5,7 @@ import Loading from '../../elements/shared/Loading';
 import GameSummary from '../../elements/game/GameSummary';
 import ActionButton from '../../elements/shared/ActionButton';
 import Board from '../../elements/game/Board';
-import gameStatus, {WON, LOST} from '../../../constants/gameStatus';
+import gameStatus, { WON, LOST } from '../../../constants/gameStatus';
 import {
   retrieveGameDetails,
   openCell,
@@ -29,6 +29,9 @@ const GameContainer = ({ id }) => {
   const board = useSelector(getGameBoard);
   const onCellClick = (e, x, y) => {
     e.preventDefault();
+    if (gameStatus[status] === WON || gameStatus[status] === LOST) {
+      return;
+    }
     if (e.type === 'click') {
       dispatch(openCell({ id, x, y }));
     } else {
