@@ -1,10 +1,17 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loading from '../../elements/shared/Loading';
 import GameSummary from '../../elements/game/GameSummary';
+import ActionButton from '../../elements/shared/ActionButton';
 import Board from '../../elements/game/Board';
-import { useDispatch, useSelector } from 'react-redux';
-import { retrieveGameDetails, openCell, flagCell } from '../../../actions/gameActions';
+import gameStatus, {WON, LOST} from '../../../constants/gameStatus';
+import {
+  retrieveGameDetails,
+  openCell,
+  flagCell,
+  tryAgain
+} from '../../../actions/gameActions';
 import {
   getGameLoading,
   getGameStatus,
@@ -35,17 +42,17 @@ const GameContainer = ({ id }) => {
 
   return (
     <div>
-      {loading ?
-        <Loading /> :
-          <div>
+      {loading
+        ? <Loading />
+        : <div>
             <GameSummary
               status={status}
               mines={mines}
               difficulty={difficulty}
             />
             <Board action={onCellClick} board={board} />
-          </div>
-      }
+            <ActionButton action={() => dispatch(tryAgain())} name="Try again" />
+          </div>}
     </div>
   );
 };

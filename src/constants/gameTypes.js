@@ -7,3 +7,4 @@ export const GAME_NOT_FOUND = 'GAME_NOT_FOUND';
 export const GAME_INFO = 'GAME_INFO';
 export const OPEN_CELL = 'OPEN_CELL';
 export const FLAG_CELL = 'FLAG_CELL';
+export const TRY_AGAIN = 'TRY_AGAIN';

@@ -6,7 +6,8 @@ import {
   GAME_NOT_FOUND,
   GAME_INFO,
   OPEN_CELL,
-  FLAG_CELL
+  FLAG_CELL,
+  TRY_AGAIN
 } from '../constants/gameTypes';
 
 export function createNewGame(payload) {
@@ -59,6 +60,13 @@ export function openCell(payload) {
 export function flagCell(payload) {
   return {
     type: FLAG_CELL,
+    payload
+  };
+}
+
+export function tryAgain(payload) {
+  return {
+    type: TRY_AGAIN,
     payload
   };
 }

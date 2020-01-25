@@ -1,8 +1,16 @@
+$breakpoint-small: '(min-width: 48em)' !default;
+
 .game-summary {
   display: flex;
-  flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  max-width: 200px;
+}
+
+@media #{$breakpoint-small} {
+  .game-summary {
+    max-width: 1920px;
+  }
 }

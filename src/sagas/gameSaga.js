@@ -10,7 +10,8 @@ import {
   FETCH_GAME_DETAILS,
   GAME_NOT_FOUND,
   OPEN_CELL,
-  FLAG_CELL
+  FLAG_CELL,
+  TRY_AGAIN
 } from '../constants/gameTypes';
 import { getGameId } from '../reducers/selectors';
 
@@ -43,6 +44,10 @@ export function* openCell(payload) {
 export function* flagCell(payload) {
   const game = yield call(sendFlagCell, payload);
   yield put(gameInfo(game));
+}
+
+export function* tryAgain() {
+  yield put(navigate({ path: `/` }));
 }
 
 function* watchFetchNewGame() {
@@ -80,12 +85,20 @@ function* watchFlagCell() {
   }
 }
 
+function* watchTryAgain() {
+  while (true) {
+    yield take(TRY_AGAIN);
+    yield fork(tryAgain);
+  }
+}
+
 export default function* watch() {
   yield all([
     fork(watchFetchNewGame),
     fork(watchFetchGameDetails),
     fork(watchGameNotFound),
     fork(watchOpenCell),
-    fork(watchFlagCell)
+    fork(watchFlagCell),
+    fork(watchTryAgain)
   ]);
 }
