@@ -7,7 +7,7 @@ import GameContainer from '../containers/game/GameContainer';
 const Game = ({ match }) => {
   return (
     <PageWrapper>
-      <Header title="Minesweeper" />
+      <Header value="Minesweeper" />
       <GameContainer id={match.params.id} />
     </PageWrapper>
   );

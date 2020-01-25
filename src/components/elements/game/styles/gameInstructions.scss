@@ -1,0 +1,15 @@
+.game-instructions {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  p {
+    width: 100%;
+    margin-top: 0px;
+    text-align: start;
+  }
+}
