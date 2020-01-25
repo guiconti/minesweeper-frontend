@@ -18,10 +18,10 @@ describe('<PageWrapper />', () => {
   it('should render a string if passed as children', () => {
     const wrapper = shallow(
       <PageWrapper>
-        {title}
+        <p>{title}</p>
       </PageWrapper>
     );
-    const actual = wrapper.find('div').text();
+    const actual = wrapper.find('p').text();
     const expected = title
 
     expect(actual).toEqual(expected);

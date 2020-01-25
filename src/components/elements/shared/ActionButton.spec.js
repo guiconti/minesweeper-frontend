@@ -43,6 +43,6 @@ describe('<ActionButton />', () => {
     wrapper.find('button').simulate('click');
     const expected = 1;
 
-    expect(action).toHaveBeenCalledTimes(expected)
+    expect(action).toHaveBeenCalledTimes(expected);
   });
 });
