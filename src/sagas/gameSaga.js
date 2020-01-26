@@ -1,9 +1,16 @@
 import { put, call, select, take, fork, all } from 'redux-saga/effects';
-import retrieveNewGame from '../apis/retrieveNewGame';
-import retrieveGameDetails from '../apis/retrieveGameDetails';
-import sendOpenCell from '../apis/sendOpenCell';
-import sendFlagCell from '../apis/sendFlagCell';
-import { newGame, gameLoading, gameInfo, gameNotFound } from '../actions/gameActions';
+import {
+  retrieveNewGame,
+  retrieveGameDetails,
+  sendOpenCell,
+  sendFlagCell
+} from '../apis/gameApis';
+import {
+  newGame,
+  gameLoading,
+  gameInfo,
+  gameNotFound
+} from '../actions/gameActions';
 import { navigate } from '../actions/navigateActions';
 import {
   FETCH_NEW_GAME,
@@ -27,7 +34,7 @@ export function* fetchGameDetails(payload) {
     yield put(gameLoading());
     const game = yield call(retrieveGameDetails, payload);
     yield put(gameInfo(game));
-  } catch(err) {
+  } catch (err) {
     yield put(gameNotFound());
   }
 }
