@@ -1,4 +1,4 @@
-import { NEW_GAME, GAME_LOADING, GAME_INFO } from '../constants/gameTypes';
+import { NEW_GAME } from '../constants/gameTypes';
 import reducer from './gameReducer';
 import initialState from './initialState';
 
