@@ -22,6 +22,7 @@ To run tests and generate a coverage report
 ```npm run test:cover```
 
 ### Coverage ###
+![Coverage](https://i.imgur.com/ogNpsJT.png)
 
 ### Docs ###
 
