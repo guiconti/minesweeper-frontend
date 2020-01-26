@@ -1,4 +1,4 @@
-const BACKEND_HOST = 'http://localhost:8000';
+const BACKEND_HOST = process.env.BACKEND_HOST || 'http://localhost:8000';
 const headers = {
   'Accept': 'application/json',
   'Content-Type': 'application/json'

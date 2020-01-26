@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
+import Dotenv from 'dotenv-webpack';
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
@@ -26,6 +27,7 @@ export default {
     filename: '[name].[contenthash].js'
   },
   plugins: [
+    new Dotenv(),
     new webpack.DefinePlugin(GLOBALS),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'

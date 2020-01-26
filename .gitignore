@@ -56,3 +56,6 @@ package-lock.json
 # Visual studio
 .vscode
 .vs
+
+# Environment variables
+.env
