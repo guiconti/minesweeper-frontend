@@ -18,7 +18,7 @@ function configureStoreProd(initialState) {
   ];
 
   const store = createStore(
-    createRootReducer(history), // root reducer with router state
+    createRootReducer(history),
     initialState,
     compose(applyMiddleware(...middlewares))
   );
@@ -31,21 +31,19 @@ function configureStoreProd(initialState) {
 function configureStoreDev(initialState) {
   const reactRouterMiddleware = routerMiddleware(history);
   const middlewares = [
-    // Redux middleware that spits an error on you when you try to mutate your state either inside a dispatch or between dispatches.
     reduxImmutableStateInvariant(),
     sagaMiddleware,
     reactRouterMiddleware,
   ];
 
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
-    createRootReducer(history), // root reducer with router state
+    createRootReducer(history),
     initialState,
     composeEnhancers(applyMiddleware(...middlewares))
   );
 
   if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
     module.hot.accept('../reducers', () => {
       const nextRootReducer = require('../reducers').default; // eslint-disable-line global-require
       store.replaceReducer(connectRouterHistory(nextRootReducer));
