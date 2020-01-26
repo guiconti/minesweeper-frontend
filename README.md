@@ -2,6 +2,8 @@
 
 This repository contains the game Minesweeper. You can check out the backend APIs for this project by clicking [here](https://github.com/guiconti/minesweeper-backend)
 
+You can also try it live [here](http://minesweeper.octobite.com/)
+
 ### Setup ###
 
 Install dependencies
