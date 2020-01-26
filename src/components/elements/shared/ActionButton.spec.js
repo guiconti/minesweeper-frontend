@@ -8,7 +8,7 @@ describe('<ActionButton />', () => {
 
   it('should have a div with the action-container class', () => {
     const wrapper = shallow(
-      <ActionButton action={action} name={title}/>
+      <ActionButton action={action} label={title}/>
     );
     const actual = wrapper.find('div').hasClass('action-container');
     const expected = true;
@@ -18,7 +18,7 @@ describe('<ActionButton />', () => {
 
   it('should have a button with the action-button class', () => {
     const wrapper = shallow(
-      <ActionButton action={action} name={title}/>
+      <ActionButton action={action} label={title}/>
     );
     const actual = wrapper.find('button').hasClass('action-button');
     const expected = true;
@@ -28,7 +28,7 @@ describe('<ActionButton />', () => {
 
   it('should have a button with the title variable', () => {
     const wrapper = shallow(
-      <ActionButton action={action} name={title}/>
+      <ActionButton action={action} label={title}/>
     );
     const actual = wrapper.find('button').text();
     const expected = title;
@@ -38,7 +38,7 @@ describe('<ActionButton />', () => {
 
   it('should call action when button is clicked', () => {
     const wrapper = shallow(
-      <ActionButton action={action} name={title}/>
+      <ActionButton action={action} label={title}/>
     );
     wrapper.find('button').simulate('click');
     const expected = 1;

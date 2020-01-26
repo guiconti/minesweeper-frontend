@@ -9,17 +9,14 @@ import './styles/gameSummary.scss';
 const GameSummary = ({ status, mines, difficulty }) => {
   return (
     <div className="game-summary">
-      {gameStatus[status] === WON ?
-        <AlertText success={true}>
-          Congratulations!!! You won 🎉🎉🎉
-        </AlertText> : null
-      }
-      {gameStatus[status] === LOST ?
-        <AlertText success={false}>
-          Ohh noooo, you lost :(
-        </AlertText>
-        : null
-      }
+      {gameStatus[status] === WON
+        ? <AlertText>
+            Congratulations!!! You won 🎉🎉🎉
+          </AlertText>
+        : null}
+      {gameStatus[status] === LOST
+        ? <AlertText>Ohh noooo, you lost :(</AlertText>
+        : null}
       <GameInfo label="Mines" value={mines} />
       <GameInfo label="Difficulty" value={gameDifficulties[difficulty]} />
     </div>

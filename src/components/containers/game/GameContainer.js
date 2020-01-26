@@ -47,15 +47,15 @@ const GameContainer = ({ id }) => {
     <div>
       {loading
         ? <Loading />
-        : <div>
+        : <>
             <GameSummary
               status={status}
               mines={mines}
               difficulty={difficulty}
             />
             <Board action={onCellClick} board={board} />
-            <ActionButton action={() => dispatch(tryAgain())} name="Try again" />
-          </div>}
+            <ActionButton action={() => dispatch(tryAgain())} label="Try again" />
+          </>}
     </div>
   );
 };

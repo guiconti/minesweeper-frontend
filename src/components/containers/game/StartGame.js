@@ -23,7 +23,7 @@ const StartGame = () => {
       />
       <ActionButton
         action={() => dispatch(createNewGame({ difficulty }))}
-        name="Start game"
+        label="Start game"
       />
     </div>
   );

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/alertText.scss';
 
-const AlertText = ({ children, success }) => {
+const AlertText = ({ children }) => {
   return (
-    <div className={`alert ${success ? 'success' : 'failure'}`}>
+    <div className='alert'>
       <h3>
         {children}
       </h3>
@@ -13,8 +13,7 @@ const AlertText = ({ children, success }) => {
 };
 
 AlertText.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  success: PropTypes.bool.isRequired
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
 };
 
 export default AlertText;

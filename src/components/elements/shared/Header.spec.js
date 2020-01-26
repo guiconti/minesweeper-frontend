@@ -23,7 +23,7 @@ describe('<Header />', () => {
         {title}
       </Header>
     );
-    const actual = wrapper.find('h2').text();
+    const actual = wrapper.find('h1').text();
     const expected = title;
 
     expect(actual).toEqual(expected);

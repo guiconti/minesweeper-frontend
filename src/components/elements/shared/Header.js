@@ -5,9 +5,9 @@ import './styles/header.scss';
 const Header = ({ children }) => {
   return (
     <div className="header">
-      <h2>
+      <h1>
         {children}
-      </h2>
+      </h1>
     </div>
   );
 };
