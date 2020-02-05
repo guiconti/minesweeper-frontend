@@ -34,4 +34,4 @@ BoardCell.propTypes = {
   column: PropTypes.number.isRequired
 };
 
-export default BoardCell;
+export default React.memo(BoardCell);

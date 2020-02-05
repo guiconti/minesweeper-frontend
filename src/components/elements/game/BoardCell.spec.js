@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import BoardCell from './BoardCell';
 import { BLANK, MINE, UNKNOWN, FLAG } from '../../../constants/gameCells';
 
@@ -11,7 +11,7 @@ describe('<BoardCell />', () => {
   const column = 0;
 
   it('should have a div with the board-cell class', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <BoardCell
         action={action}
         value={value}
@@ -26,7 +26,7 @@ describe('<BoardCell />', () => {
   });
 
   it(`should not have a div with the empty-cell class if value is not ${BLANK}`, () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <BoardCell
         action={action}
         value={value}
@@ -41,7 +41,7 @@ describe('<BoardCell />', () => {
   });
 
   it(`should not have a div with the mine-cell class if value is not ${MINE}`, () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <BoardCell
         action={action}
         value={value}
@@ -56,7 +56,7 @@ describe('<BoardCell />', () => {
   });
 
   it(`should have a div with the empty-cell class if value is ${BLANK}`, () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <BoardCell
         action={action}
         value={BLANK}
@@ -71,7 +71,7 @@ describe('<BoardCell />', () => {
   });
 
   it(`should have a div with the mine-cell class if value is ${MINE}`, () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <BoardCell
         action={action}
         value={MINE}
@@ -88,7 +88,7 @@ describe('<BoardCell />', () => {
   it('should call action on click', () => {
     const spy = jest.fn();
 
-    const wrapper = shallow(
+    const wrapper = mount(
       <BoardCell
         action={spy}
         value={UNKNOWN}
@@ -105,7 +105,7 @@ describe('<BoardCell />', () => {
   it('should call action on contextmenu', () => {
     const spy = jest.fn();
 
-    const wrapper = shallow(
+    const wrapper = mount(
       <BoardCell
         action={spy}
         value={FLAG}
@@ -122,7 +122,7 @@ describe('<BoardCell />', () => {
   it(`should not call action on click if value is ${MINE}`, () => {
     const spy = jest.fn();
 
-    const wrapper = shallow(
+    const wrapper = mount(
       <BoardCell
         action={spy}
         value={MINE}
@@ -139,7 +139,7 @@ describe('<BoardCell />', () => {
   it(`should not call action on contextmenu if value is ${MINE}`, () => {
     const spy = jest.fn();
 
-    const wrapper = shallow(
+    const wrapper = mount(
       <BoardCell
         action={spy}
         value={MINE}
