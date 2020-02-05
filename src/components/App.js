@@ -7,18 +7,16 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { hot } from 'react-hot-loader';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/games/:id" component={Game} />
-          <Route component={NotFound} />
-        </Switch>
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/games/:id" component={Game} />
+        <Route component={NotFound} />
+      </Switch>
+    </div>
+  );
 }
 
 App.propTypes = {
